@@ -1,0 +1,65 @@
+/* Nishaani motion language: paper reveals, slow archival drift, and tactile focus. */
+:root { --motion-ease: cubic-bezier(.2,.72,.18,1); }
+.spacer { height: 17px; }
+.feature-label, .feature-panel { color: var(--blue); }
+.feature-label { display: inline-block; font: 600 11px/1.4 var(--mono); letter-spacing: 1px; }
+.feature-panel { padding: 16px 18px; border-left: 2px solid var(--rust); background: #eee6d7; }
+.artifact-stage { isolation: isolate; }
+.artifact-stage::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:1; opacity:.3; background:linear-gradient(115deg,transparent 25%,#fff7 48%,transparent 68%); transform:translateX(-120%); animation:archive-glint 11s var(--motion-ease) infinite; }
+.artifact-halo { animation:halo-breathe 8s ease-in-out infinite; }
+.artifact-tag { animation:tag-drift 7s ease-in-out infinite; }
+.tag-two { animation-delay: -2s; }
+.tag-three { animation-delay: -4s; }
+.artifact-ground { animation:ground-breathe 7s ease-in-out infinite; }
+.hero-copy > * { animation:paper-enter .65s var(--motion-ease) both; }
+.hero-copy > *:nth-child(2) { animation-delay: .07s; }
+.hero-copy > *:nth-child(3) { animation-delay: .13s; }
+.hero-copy > *:nth-child(4) { animation-delay: .2s; }
+.hero-copy > *:nth-child(5) { animation-delay: .27s; }
+.record-card, .story-card, .steward-card, .button, .filter-button { transition: transform .32s var(--motion-ease), box-shadow .32s var(--motion-ease), background-color .24s ease, border-color .24s ease; }
+.record-card:hover, .steward-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px #392d1b17; }
+.button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px #382c1d20; }
+.button:active { transform: translateY(0) scale(.985); }
+.navigation a { transition: color .2s ease, background .2s ease, padding .2s ease; }
+.navigation a:hover { padding-left: 12px; }
+.view { animation:view-arrive .42s var(--motion-ease) both; }
+.toasts { position:fixed; right:20px; bottom:20px; z-index:90; display:grid; gap:8px; }
+.toast { max-width:min(360px,calc(100vw - 32px)); font-size:14px; line-height:1.4; }
+.note, .footer-note, .feature-label, .eyebrow, .section-mark, .side-caption, .local-status,
+.field label, .record-meta, .status-tag, .access-label, .mini-time, .breadcrumb, .feature-label,
+.artifact-tag, .stage-top, .stage-bottom, .card-foot, .filter-button, .tool-button,
+.consent-table th, .consent-table td small, .timeline-item small, .shelf-cell small,
+.form-actions .small, .exhibit-meta, .check-story small, .search-form label, .search-form p {
+  font-size: max(11px, 1em);
+}
+.hero-desc, .title-block > p, .story-feature p, .record-card p, .steward-card p,
+.quote-panel p, .detail-body > p, .note, .field input, .field select, .field textarea,
+.consent-option small, .shelf-cell span { font-size: max(15px, 1em); line-height:1.55; }
+.ribbon-item strong, .activity-row strong, .check-story strong { font-weight:700; }
+.field input, .field select, .field textarea { font-weight:600; }
+.button { font-weight:700; }
+.feature-label, .eyebrow, .section-mark { font-weight:700; }
+@keyframes paper-enter { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+@keyframes view-arrive { from { opacity:0; } to { opacity:1; } }
+@keyframes archive-glint { 0%, 65%, 100% { transform:translateX(-120%); opacity:0; } 72% { opacity:.5; } 88% { transform:translateX(120%); opacity:0; } }
+@keyframes halo-breathe { 0%,100% { transform:translate(-50%,-50%) scale(.96); opacity:.65; } 50% { transform:translate(-50%,-50%) scale(1.05); opacity:.9; } }
+@keyframes tag-drift { 0%,100% { translate:0 0; } 50% { translate:0 -5px; } }
+@keyframes ground-breathe { 0%,100% { transform:scaleX(.94); opacity:.52; } 50% { transform:scaleX(1.04); opacity:.75; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
+}
+@media (max-width:740px) { .toasts { right:12px; bottom:12px; left:12px; } .toast { max-width:none; } }
+
+/* Mechanical motion is slow, weighted, and tied to the recording path. */
+.fallback-deck { transform-origin:280px 220px; animation: deck-float 7s ease-in-out infinite; }
+.fallback-reel-left { transform-origin:190px 188px; animation: fallback-spin 13s linear infinite; }
+.fallback-reel-right { transform-origin:370px 188px; animation: fallback-spin 16s linear infinite reverse; }
+.fallback-tape { animation: tape-travel 1.8s linear infinite; }
+.artifact-stage { background:radial-gradient(ellipse at 51% 49%,#fafdff 0,#e8effc 48%,#dce6f7 100%); border-color:#b7c8e4; }
+.artifact-stage::before { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg,transparent 0 36%,#fff8 49%,transparent 62%); opacity:.28; mix-blend-mode:screen; }
+.artifact-halo { border-color:#7895c777; box-shadow:0 0 0 18px #fff5,0 0 0 19px #5279b42e,0 0 0 42px #fff3,0 0 0 43px #5279b421; }
+.artifact-ground { background:#183c792c; filter:blur(15px); }
+@keyframes deck-float { 0%,100%{transform:translateY(0) rotate(-.3deg)} 50%{transform:translateY(-7px) rotate(.3deg)} }
+@keyframes fallback-spin { to { transform:rotate(360deg); } }
+@keyframes tape-travel { to { stroke-dashoffset:-22; } }
+@media(prefers-reduced-motion:reduce){.fallback-deck,.fallback-reel-left,.fallback-reel-right,.fallback-tape{animation:none!important}}

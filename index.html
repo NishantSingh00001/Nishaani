@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A careful digital workbench for community memories, voices and their consent." />
+  <title>Nishaani — Stories stay in good hands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="motion.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <header class="masthead"><a class="wordmark" href="#home" aria-label="Nishaani home"><span class="mark"><b></b><b></b><b></b></span><span>Nishaani<small>THE LIVING MEMORY WORKBENCH</small></span></a><div class="mast-center"><span class="signal"></span> COMMUNITY ARCHIVE <i>/</i> THANE, MAHARASHTRA</div><div class="mast-actions"><button id="open-search" class="search-trigger" aria-label="Search stories">⌕ <span>SEARCH</span></button><button id="open-menu" class="menu-trigger" aria-label="Toggle menu">☰</button><span class="edition">FIELD EDITION&nbsp; 01</span></div></header>
+  <div class="layout"><aside class="sidebar" id="sidebar"><div class="side-caption">YOUR ARCHIVE</div><nav class="navigation" aria-label="Archive navigation"><a href="#home" data-view="home"><span>01</span>Reading room</a><a href="#stories" data-view="stories"><span>02</span>Story catalogue<kbd id="story-count">08</kbd></a><a href="#capture" data-view="capture"><span>03</span>New testimony</a><a href="#transcripts" data-view="transcripts"><span>04</span>Transcript desk</a><a href="#consent" data-view="consent"><span>05</span>Rights & consent</a><a href="#exhibitions" data-view="exhibitions"><span>06</span>Exhibitions</a><a href="#stewardship" data-view="stewardship"><span>07</span>Archive care</a></nav><div class="side-bottom"><div class="side-note"><span class="note-seal">✳</span><strong>Care before collection.</strong><p>Every story stays with its speaker’s choices.</p><button class="link-button" data-go="consent">Review the principles ↗</button></div><div class="local-status"><span>THIS DEVICE</span><b><i></i> PRIVATE WORKSPACE</b></div></div></aside><main id="main" tabindex="-1"></main></div>
+  <dialog id="search-dialog" class="search-dialog"><form method="dialog" class="search-form"><label for="archive-search">SEARCH THE COLLECTION</label><div><input id="archive-search" type="search" placeholder="A voice, place, phrase, or year…" autocomplete="off"><button value="cancel" aria-label="Close search">×</button></div><section id="search-matches"></section><p>Stories with restricted access never appear here.</p></form></dialog><dialog id="detail-dialog" class="detail-dialog"><div id="detail-content"></div></dialog><div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>
